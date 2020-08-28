@@ -151,6 +151,15 @@ class Utility {
         }
     };
 
+    elementGenericSelectorWrite = async (selector, text, page, delay = 30) => {
+        try {
+            await page.waitForSelector(selector);
+            await this.inputWrite(text, page, delay);
+        } catch (e) {
+            console.error(Console.FgRed, e.message);
+        }
+    };
+
     /**
      *
      * @param formControlName
